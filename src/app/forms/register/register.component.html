@@ -1,0 +1,78 @@
+
+<div *ngFor="let image of image">
+  <img src="{{image.register}}" alt="register">
+</div>
+
+<form (ngSubmit)="onSubmit()">
+<div *ngFor="let label of labels">
+<div *ngFor="let placeholder of placeholders">
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{label.prefix}}</mat-label>
+    <mat-select [(ngModel)]="personValue.prefix" name="prefix">
+      <mat-option *ngFor="let prefix of prefix" [value]="prefix.prefix">
+        {{prefix.prefix}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  
+<mat-form-field appearance="outline">
+    <mat-label>{{label.firstName}}</mat-label>
+    <input matInput placeholder="{{placeholder.firstName}}" required="First Name is required" type="text" name="firstName" [(ngModel)]="personValue.firstName">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+    <mat-label>{{label.lastName}}</mat-label>
+    <input matInput placeholder="{{placeholder.lastName}}" required="Last Name is required" type="text" name="lastName" [(ngModel)]="personValue.lastName">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+    <mat-label>{{label.emailid}}</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+           placeholder="{{placeholder.emailid}}" type="email" name="email" [(ngModel)]="personValue.account.emailId">
+           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required') || emailFormControl.hasError('touched')">
+            Email is <strong>required</strong>
+          </mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <input matInput [matDatepicker]="picker" placeholder="Date of birth">
+<div class="date">
+<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+</div>
+<mat-datepicker #picker></mat-datepicker>
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+    <mat-label>{{label.phoneNumber}}</mat-label>
+    <input type="email" matInput [formControl]="phoneNumberControl" [errorStateMatcher]="matcher"
+           placeholder="{{placeholder.phoneNumber}}" type="number" name="phoneNumber"[(ngModel)]="personValue.phoneNumber">
+           <mat-error *ngIf="phoneNumberControl.hasError('number') && phoneNumberControl.hasError('required')">
+            Please enter a valid phone number
+          </mat-error>
+          <mat-error *ngIf="phoneNumberControl.hasError('required')">
+            Phone Number is <strong>required</strong>
+          </mat-error>
+</mat-form-field>
+
+
+<mat-form-field appearance="outline">
+  <mat-label>{{label.gender}}</mat-label>
+  <mat-select [(ngModel)]="personValue.gender" name="gender">
+    <mat-option *ngFor="let gender of gender" [value]="gender.gender">
+      {{gender.gender}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+ <button type="submit"  class="login-btn btn btn-primary login-btn btn-block mb-4" >Register</button> 
+
+</div>
+</div>
+</form> 

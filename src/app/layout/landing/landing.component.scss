@@ -1,0 +1,68 @@
+.first-line {
+  position: absolute;
+  width: 472px;
+  height: 148px;
+  left: 99px;
+  top: 216px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 73px;
+
+  color: black;
+}
+
+.second-line {
+  position: absolute;
+  width: 472px;
+  height: 148px;
+  left: 99px;
+  top: 288px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 73px;
+
+  color: #1463d8;
+}
+
+.subtitle {
+  position: absolute;
+  width: 50%;
+  height: 128px;
+  left: 102px;
+  top: 380px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 36px;
+  color: #000000;
+}
+
+img {
+  position: absolute;
+  width: 450px;
+  height: 350px;
+  border-radius: 10px;
+  margin-left: 800px;
+  margin-top: 60px;
+}
+
+mat-form-field {
+  margin-top: 400px;
+  margin-left: 100px;
+}
+
+button {
+  height: 54px;
+  width: 109px;
+  margin-left: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background: #27A4FE;
+}

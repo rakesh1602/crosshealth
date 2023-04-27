@@ -1,0 +1,49 @@
+<div *ngFor="let context of content">
+    <h1 class="first-line">{{context.pageTitleFirstLine}}</h1>
+    <h1 class="second-line">{{context.pageTitleColoredLine}}</h1>
+    <h3 class="subtitle">{{context.pageSubtitle}}</h3>
+</div>
+
+<div *ngFor="let image of image">
+    <img src="{{image.doctor}}" alt="doctor">
+</div>
+
+<!-- <form #f="ngForm" [formGroup]="phoneForm">
+    <div class="wrapper">
+      <ngx-intl-tel-input
+        [cssClass]="'custom'"
+        [preferredCountries]="preferredCountries"
+        [enableAutoCountrySelect]="true"
+        [enablePlaceholder]="true"
+        [searchCountryFlag]="true"
+        [searchCountryField]="[
+          SearchCountryField.Iso2,
+          SearchCountryField.Name
+        ]"
+        [selectFirstCountry]="true"
+        [selectedCountryISO]="CountryISO.India"
+        [maxLength]="15"
+        [phoneValidation]="true"
+        [separateDialCode]="separateDialCode"
+        name="phone"
+        formControlName="phone"
+      >
+      </ngx-intl-tel-input>
+    </div>
+
+  </form> -->
+
+
+<mat-form-field appearance="outline">
+    <mat-label>Phone Number</mat-label>
+    <input type="email" matInput [formControl]="phoneNumberControl"
+           placeholder="Enter your Phone Number">
+           <mat-error *ngIf="phoneNumberControl.hasError('number') && !phoneNumberControl.hasError('required')">
+            Please enter a valid phone number
+          </mat-error>
+          <mat-error *ngIf="phoneNumberControl.hasError('required')">
+            Phone Number is <strong>required</strong>
+          </mat-error>
+</mat-form-field>
+
+<button>Enroll Now</button>
